@@ -1,0 +1,119 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: vicke
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: mls-api
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: mls-api
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-north-1
+  deploymentMethod: direct
+  logs:
+    restApi: true
+  iam:
+    role: arn:aws:iam::149536467744:role/LambdaDynamoDBRole
+
+functions:
+  GetMenu:
+    handler: functions/GetMenu/index.handler
+    events:
+      - httpApi:
+          path: /menu
+          method: get
+  GetOrders:
+    handler: functions/GetOrders/index.handler
+    events:
+      - httpApi:
+          path: /orders
+          method: get
+  GetOrdersID:
+    handler: functions/GetOrdersID/index.handler
+    events:
+      - httpApi:
+          path: /orders/{id}
+          method: get
+  CreateOrder:
+    handler: functions/CreateOrder/index.handler
+    events:
+      - httpApi:
+          path: /orders
+          method: post
+  DeleteOrder:
+    handler: functions/DeleteOrder/index.handler
+    events:
+      - httpApi:
+          path: /orders/{id}
+          method: delete
+  UpdateOrder:
+    handler: functions/DeleteOrder/index.handler
+    events:
+      - httpApi:
+          path: /orders/{id}
+          method: put
+  Login:
+    handler: functions/Login/index.handler
+    events:
+      - httpApi:
+          path: /auth/login
+          method: post
+  Signin:
+    handler: functions/Signin/index.handler
+    events:
+      - httpApi:
+          path: /auth/signin
+          method: post
+  SendVerificationCode:
+    handler: functions/SendVerificationCode/index.handler
+    events:
+      - httpApi:
+          path: /auth/send-code
+          method: post
+  VerifyCode:
+    handler: functions/VerifyCode/index.handler
+    events:
+      - httpApi:
+          path: /auth/verify-code
+          method: post
+
+
+resources:
+  Resources:
+    OrderTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: 'mls-orders'
+        AttributeDefinitions:
+          - AttributeName: 'orderId'
+            AttributeType: 'S'
+        KeySchema:
+          - AttributeName: 'orderId'
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    UserTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: 'mls-user'
+        AttributeDefinitions:
+          - AttributeName: 'email'
+            AttributeType: 'S'
+        KeySchema:
+          - AttributeName: 'email'
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    MenuTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: 'mls-menu'
+        AttributeDefinitions:
+          - AttributeName: 'id'
+            AttributeType: 'S'
+          - AttributeName: 'price'
+            AttributeType: 'S'
+        KeySchema:
+          - AttributeName: 'id'
+            KeyType: HASH
+          - AttributeName: 'price'
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
