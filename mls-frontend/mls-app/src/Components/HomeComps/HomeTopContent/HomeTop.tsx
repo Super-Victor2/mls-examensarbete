@@ -1,5 +1,5 @@
 import './HomeTop.css'
-import backgroundImage from '../../../assets/image1.png'
+import backgroundImage from '../../../assets/homeImageBigger.png'
 import { motion } from "framer-motion"
 
 function HomeTop() {
@@ -28,23 +28,15 @@ function HomeTop() {
                     whileInView="onscreen"
                     variants={variants}
                     viewport={{ once: true, amount: 1 }}
-                    className="home__title bold">Ge din bil en ny glans
+                    className="home__title">Ge din bil en ny glans
                 </motion.h1>
-                <motion.i
-                    animate={{ scale: [1, 1.5, 1], y: [-30, -25, -30]}}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
-                    className="home__arrow-icon fa-solid fa-chevron-down">
-                </motion.i>
-                <motion.i
-                    animate={{ scale: [1, 1.5, 1], y: [-30, -25, -30]}}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
-                    className="home__arrow-icon fa-solid fa-chevron-down">
-                </motion.i>
-                <motion.i
-                    animate={{ scale: [1, 1.5, 1], y: [-30, -25, -30]}}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
-                    className="home__arrow-icon fa-solid fa-chevron-down">
-                </motion.i>
+                <div className="group">
+                    <div className="small-box"></div>
+                    <p className="group-text">Se program</p>
+                    <div className="arrow-group">
+                        <i className="arrow fa-solid fa-arrow-down"></i>
+                    </div>
+                </div>
                 <img className="home__background-img" src={backgroundImage} alt="background img" />
             </section>
         </>

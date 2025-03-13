@@ -5,12 +5,13 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   background-color: var(--background-color);
 
   --primary-color: #3f010142;
   --background-color: #272727;
+  --card-bg: #181818;
   --dark-gray-color: #181818;
+  --gray-color: #424242;
   --btn-color: #9C0205;
   --btn-color-hover: #740103;
   --confirm-color: #009511;
@@ -42,6 +43,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  color: white;
 }
 
 .bold {

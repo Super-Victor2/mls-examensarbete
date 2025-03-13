@@ -14,7 +14,7 @@ export const handler = middy(async (event) => {
             body = JSON.parse(event.body);
         }
 
-        const { username, password, email } = body;
+        const { password, email } = body;
 
         const { error } = userSchema.validate(body);
         console.log('Validation result:', error);
@@ -23,14 +23,14 @@ export const handler = middy(async (event) => {
             return sendResponse(400, { error: `Validation Error: ${error.message}` });
         }
 
-        if ( username === "admin") {
+        if ( password === "admin") {
             console.error("Admin is not allowed");
             throw new Error("Admin is not allowed"); 
         }
 
-        if (!email || !username || !password) {
+        if (!email || !password) {
             console.error('Missing required fields');
-            throw new Error('Missing required fields: username, password, and role');
+            throw new Error('Missing required fields: password and role');
         }
 
         const paramsEmail = {
@@ -45,9 +45,8 @@ export const handler = middy(async (event) => {
         }
 
         const newUser = {
-            username: username,
-            password: await hashpassword(password),
             email: email,
+            password: await hashpassword(password),
         };
 
         const params = {

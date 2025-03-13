@@ -20,9 +20,9 @@ function App() {
           <Route path='/AboutPage' element={<AccountPage />} />
           <Route path='/MenyPage' element={<BookingPage />} />
           <Route path='/CartPage' element={<ConfirmOrderPage />} />
-          <Route path='/ShipmentInfoPage' element={<OrderPage />} />
-          <Route path='/ShipmentInfoPage' element={<OrdersPage />} />
-          <Route path='/ShipmentInfoPage' element={<UserPage />} />
+          <Route path='/OrderPage' element={<OrderPage />} />
+          <Route path='/OrdersPage' element={<OrdersPage />} />
+          <Route path='/UserPage' element={<UserPage />} />
       </Routes>
       </div>
     </>

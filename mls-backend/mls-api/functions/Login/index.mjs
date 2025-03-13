@@ -13,11 +13,11 @@ export const handler = middy(async (event) => {
             body = JSON.parse(event.body);
         }
 
-        const { username, password, email } = body || {};
+        const { password, email } = body || {};
 
-        if (!username || !password || !email) {
+        if (!password || !email) {
             console.error('Missing required fields');
-            return sendResponse(400, { error: 'Missing required fields: username, password, and email' });
+            return sendResponse(400, { error: 'Missing required fields: password and email' });
         }
 
         const { error } = userSchema.validate(body);
@@ -42,22 +42,20 @@ export const handler = middy(async (event) => {
 
         const isPasswordCorrect = await comparePasswords(password, existingUser.password);
         const isEmailCorrect = existingUser.email === email;
-        const isUsernameCorrect = existingUser.username === username;
 
-        if (!isPasswordCorrect || !isEmailCorrect || !isUsernameCorrect) {
+        if (!isPasswordCorrect || !isEmailCorrect) {
             console.error('Invalid credentials');
-            return sendResponse(401, { error: 'Invalid username, password, or email' });
+            return sendResponse(401, { error: 'Invalid password or email' });
         }
 
         const adminUser = {
-            username: "admin",
-            password: await hashpassword("admin"),
-            email: email,
+            password: await hashpassword("mosigos123"),
+            email: "moakitty@gmail.com",
         };
 
         const isEqual = await comparePasswords(password, adminUser.password);
 
-        if (username === 'admin' && (password !== adminUser.username || !isEqual)) {
+        if (email === "moakitty@gmail.com" && (password !== adminUser.password || !isEqual)) {
             console.error('Invalid admin credentials or permission denied');
             throw new Error('Invalid admin credentials or permission denied');
         }
@@ -66,9 +64,8 @@ export const handler = middy(async (event) => {
         console.log('token', token);
 
         const newLogin = {
-            username,
-            password,
             email,
+            password
         };
 
         return sendResponseWithHeaders(200, { message: 'Login successful', newLogin, token });

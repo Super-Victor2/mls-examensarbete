@@ -1,0 +1,237 @@
+/* Card Top */
+
+.card__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.card__section-btn-flex {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 353px;
+}
+
+.card__section-btn {
+    padding: 12px 16px;
+    background-color: var(--gray-color);
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out; 
+    color: white;
+
+}
+
+.card__section-btn:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.card__section-btn-icon {
+    margin-right: 10px;
+}
+
+.card__category-option {
+    background-color: var(--gray-color);
+    width: 130px;
+    height: 100px;
+    border-radius: 5px;
+    position: absolute;
+    margin-top: 43px;
+}
+
+.card__category-list {
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    margin: 0;
+}
+
+.card__category-item {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out; 
+    height: 50px;
+}
+
+.card__category-item:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.card__category-text {
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+}
+
+/* Card Wrapper */
+
+.cards__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Card */
+
+.card {
+    background-color: var(--card-bg);    
+}
+
+/* Card Header */
+
+.card-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: flex-end;
+}
+
+.card-tier {
+    font-size: var(--under-heading-small-desktop);
+    align-self: flex-end;
+    margin: 0;
+}
+
+.card-price {
+    justify-self: end;
+    align-self: end;
+    font-size: 16px;
+    margin-top: 3px;
+    margin: 0;
+}
+
+.card-type {
+    margin: 0;
+}
+
+/* Card List */
+
+.card__description-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.card__description-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.card__description-icon-check {
+    color: var(--confirm-color);
+}
+
+.card__description-icon-x {
+    color: var(--error-color);
+}
+
+/* Card time / Btn */
+
+.card__time-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.card-btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-btn {
+    padding:  10px 50px;
+    background-color: var(--gray-color);
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out; 
+}
+
+.card-btn:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.card-info {
+    float: right;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-info:hover {
+    cursor: pointer;
+    opacity: 90%;
+}
+
+/* Prev / next icon */
+
+.prevIcon, .nextIcon {
+    margin: 15px;
+    transition: all 0.3s ease-in-out; 
+}
+
+.prevIcon:hover, .nextIcon:hover {
+    cursor: pointer;
+    opacity: 80%;
+    transform: scale(1.1);
+}
+
+/* MQ Cards Desktop => Mobile */
+
+@media screen and (min-width: 1001px) {
+    .card__section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 300px;
+    }
+
+    .cards__wrapper {
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .prevIcon, .nextIcon {
+        display: none;
+    }
+
+    .card__section-btn-flex {
+        width: 940px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .card {
+        width: 250px;
+    }
+
+    .card__section-btn-flex {
+        width: 250px;
+    }
+}
