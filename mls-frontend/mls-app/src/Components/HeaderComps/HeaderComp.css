@@ -119,6 +119,7 @@
     background-color: var(--btn-color);
     border: none;
     cursor: pointer;
+    color: white;
 }
 
 .header__nav-login-btn:hover {

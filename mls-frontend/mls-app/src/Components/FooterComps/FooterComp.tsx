@@ -55,8 +55,7 @@ function FooterComp() {
                 <nav className="footer__link-wrapper">
                     <h2 className="footer__link-header">Länkar</h2>
                     <ul className="footer__link-list">
-                        <ScrollLink className="footer__nav-link" to="washing__section" smooth={true} duration={500}>Tvätt</ScrollLink>
-                        <ScrollLink className="footer__nav-link" to="polishing__section" smooth={true} duration={500}>Polering</ScrollLink>
+                        <ScrollLink className="footer__nav-link" to="card__section" smooth={true} duration={500}>Program</ScrollLink>
                         <Link className='footer__nav-link' to={'/BookingPage'}>Bokningar</Link>
                         <ScrollLink className="footer__nav-link" to="footer__section" smooth={true} duration={500}>Kontakt</ScrollLink>
                     </ul>

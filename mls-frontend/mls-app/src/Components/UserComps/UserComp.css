@@ -37,6 +37,7 @@ label:nth-child(3) {
     margin-top: 10px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    color: white;
 }
 
 .user__section-form-btn:hover {

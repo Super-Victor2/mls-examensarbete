@@ -21,6 +21,7 @@
     height: 50px;
     background-color: #444444;
     opacity: 0.9;
+    cursor: pointer;
 }
 
 .small-box {
@@ -37,7 +38,6 @@
     width: 50px;
     height: 50px;
     background-color: #D9D9D9;
-    cursor: pointer;
 }
 
 .arrow {

@@ -210,10 +210,16 @@ function Header() {
                                     Kontakt
                                 </ScrollLink>
                             </motion.div>
-
-                            <motion.div className='item__bg-hover-wrapper' variants={linkVariants}>
-                                <motion.p exit={{ opacity: 0, scale: 0 }} onClick={() => loginsetIsOpen(!loginIsOpen)}  className="header__nav-link user">Logga in</motion.p>
-                            </motion.div>
+                            {account ? (
+                                <motion.div className='item__bg-hover-wrapper' variants={linkVariants}>
+                                    <Link className='header__nav-link' to={'/UserPage'}>Konto</Link>
+                                </motion.div>
+                            ) : (
+                                <motion.div className='item__bg-hover-wrapper' variants={linkVariants}>
+                                    <motion.p exit={{ opacity: 0, scale: 0 }} onClick={() => loginsetIsOpen(!loginIsOpen)}  className="header__nav-link user">Logga in</motion.p>
+                                </motion.div>
+                            )}
+                            
                         </motion.div>
 
                     </motion.div>

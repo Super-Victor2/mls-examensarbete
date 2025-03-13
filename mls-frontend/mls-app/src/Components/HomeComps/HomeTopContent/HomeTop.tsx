@@ -1,6 +1,7 @@
 import './HomeTop.css'
 import backgroundImage from '../../../assets/homeImageBigger.png'
 import { motion } from "framer-motion"
+import { Link as ScrollLink } from 'react-scroll';
 
 function HomeTop() {
     const variants = {
@@ -30,13 +31,13 @@ function HomeTop() {
                     viewport={{ once: true, amount: 1 }}
                     className="home__title">Ge din bil en ny glans
                 </motion.h1>
-                <div className="group">
+                <ScrollLink to="card__section" smooth={true} duration={500} className="group">
                     <div className="small-box"></div>
                     <p className="group-text">Se program</p>
                     <div className="arrow-group">
                         <i className="arrow fa-solid fa-arrow-down"></i>
                     </div>
-                </div>
+                </ScrollLink>
                 <img className="home__background-img" src={backgroundImage} alt="background img" />
             </section>
         </>
