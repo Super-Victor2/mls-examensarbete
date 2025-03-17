@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './UserComp.css'
+import { Link } from 'react-router-dom';
 
 function UserComp() {
     const [email, setEmail] = useState('')
@@ -11,6 +12,11 @@ function UserComp() {
             }
 
         }, []);
+
+    const handleLogout = () => {
+        sessionStorage.clear()
+        window.location.href = "/";
+    }
 
     return (
         <>
@@ -28,6 +34,8 @@ function UserComp() {
                         <input type="text" id='lname' placeholder='Efternamn' className="user__section-form-input" />
                     </form>
                     <button className="user__section-form-btn">Spara</button>
+                    <h1 className="user__logout__section-title">Logga ut</h1>
+                    <button onClick={handleLogout} className="user__logout__section-btn">Logga ut</button>
                 </section>
             </main>
         </>

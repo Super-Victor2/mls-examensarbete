@@ -40,6 +40,24 @@ label:nth-child(3) {
     color: white;
 }
 
-.user__section-form-btn:hover {
+.user__section-form-btn:hover, .user__logout__section-btn:hover {
     background-color: var(--btn-color-hover);
+}
+
+/* User logout */
+
+.user__logout__section {
+    margin-top: 5px;
+}
+
+.user__logout__section-btn {
+    background-color: var(--btn-color);
+    padding: 10px 10px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
 }
