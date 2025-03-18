@@ -167,7 +167,7 @@ function Header() {
                                 variants={loginVariants}
                                 className="header__nav-login-popup">
                                 <input value={email} onChange={(e) => setEmail(e.target.value)} className="header__nav-login-input" type="text" placeholder="Emailadress" />
-                                <input value={password} onChange={(e) => setPassword(e.target.value)} className="header__nav-login-input" type="text" placeholder="Lösenord" />
+                                <input value={password} onChange={(e) => setPassword(e.target.value)} className="header__nav-login-input" type="password" placeholder="Lösenord" />
                                 <button onClick={handleLogin} className="header__nav-login-btn">Logga in</button>
                                 <Link className='header__nav-login-text' to={"/RegisterPage"}>Inget konto? Klicka här</Link>
                             </motion.div>

@@ -1,0 +1,100 @@
+.confirm__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    gap: 15px;
+}
+
+/* Personal Section */
+
+.personal__section {
+    background-color: var(--card-bg);
+    width: 330px;
+    padding: 10px;
+}
+
+.personal__section-input-group {
+    display: grid;
+    grid-template-columns: 130px 130px;
+    grid-template-rows: 10px 60px;
+    gap: 50px;
+}
+
+.personal__section-input-label-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.personal__section-input {
+    padding: 5px 5px;
+    margin-top: 3px;
+}
+
+.personal__section-email {
+    margin-top: -0px;
+}
+
+/* Comment Section */
+
+.comment__section {
+    background-color: var(--card-bg);
+    width: 330px;
+    padding: 10px;
+}
+
+.comment__section-input-field {
+    padding: 20px 60px;
+    margin-bottom: 30px;
+}
+
+/* Terms Section */
+
+.terms__section {
+    background-color: var(--card-bg);
+    width: 330px;
+    padding: 10px;
+}
+
+.terms__section-group-terms-accept {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.program__info__section {
+    background-color: var(--card-bg);
+    width: 330px;
+    padding: 10px;
+}
+
+.program__info-text__wrapper {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    grid-template-rows: 40px 100px;
+}
+
+.program__info__wrapper-included {
+    grid-area: 2 / 1 / 4 / 4;
+}
+
+.program__info__wrapper-btn {
+    padding: 10px 10px;
+    background-color: var(--btn-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.program__info__section-btn {
+    padding: 20px 130px;
+    background-color: var(--btn-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

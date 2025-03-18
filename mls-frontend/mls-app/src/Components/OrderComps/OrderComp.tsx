@@ -1,23 +1,47 @@
 import './OrderComp.css'
 import { DayPicker } from "react-day-picker";
-import { useState } from "react";
-import useStore from '../Store/store';
+import { useEffect, useState } from "react";
+
+interface Card {
+    id: number;
+    items: cardItems[];
+    price: string;
+    time: number;
+    type: string;
+    tier: string;
+}
+
+interface cardItems {
+    name: string;
+    included: boolean;
+}
 
 function OrderComp() {
     const [selected, setSelected] = useState<Date>();
-    const cart = useStore((state) => state.cart)
+    const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
     const pickTime = () => {
         if(!selected) {
             alert("välj tid")
         } else {
             alert(selected)
+            sessionStorage.setItem("selectedTime", JSON.stringify(selected))
             window.location.href = "/ConfirmOrderPage"
         }
     }
 
+    useEffect(() => {
+        const storedCard = sessionStorage.getItem("selectedCard");
+        if (storedCard) {
+          setSelectedCard(JSON.parse(storedCard));
+        }
+
+        
+    }, []);
+
     const cancelOrder = () => {
         window.location.href = "/"
+        sessionStorage.removeItem("selectedCard")
     }
 
     return (
@@ -43,7 +67,22 @@ function OrderComp() {
                         />
                     <button onClick={pickTime} className="order__date__wrapper-btn">Välj tid</button>
                 </section>
-                <section className="order__info__wrapper">
+                <section className="order__info__section">
+                    <div className="order__info-text__wrapper">
+                        <p className="order__info__wrapper-tier">{selectedCard ? selectedCard.tier : "Inget program valt"}</p>
+                        <p className="order__info__wrapper-price">{selectedCard ? selectedCard.price : "Inget program valt"}</p>
+                        <p className="order__info__wrapper-time">{selectedCard ? selectedCard.time : "Inget program valt"}</p>
+                        <p className="order__info__wrapper-included">
+                            {selectedCard ? (
+                                selectedCard.items
+                                .filter((item) => item.included)
+                                .map((item) => item.name)
+                                .join(", ")
+                            ) : (
+                                "Inget program valt"
+                            )}
+                        </p>
+                    </div>
                     <button onClick={cancelOrder} className="order__info__wrapper-btn">Avbryt</button>
                 </section>
             </main>

@@ -4,7 +4,6 @@ import { motion, AnimatePresence, easeInOut } from "framer-motion"
 import { useState, useEffect } from "react"
 import cardImg from '../../../assets/card-img.png'
 import categoryIcon from '../../../assets/category-icon.svg'
-import useStore from '../../Store/store'
 
 interface cardApiResponse {
     data: Card[];
@@ -107,8 +106,9 @@ function HomeCards() {
     }, [selectedCategory]);
 
     // Add to cart
-    const handleAddToCart = () => {
+    const handleAddToCart = (selectedCard: Card) => {
         if (sessionStorage.getItem("token")) {
+            sessionStorage.setItem("selectedCard", JSON.stringify(selectedCard));
             window.location.href = "/OrderPage"
         } else {
             alert("logga in")
@@ -167,7 +167,7 @@ function HomeCards() {
                                     <p className="card__time-group-text">{cards[activeCard]?.time}</p>
                                 </ul>
                                 <div className="card-btn-group">
-                                    <button onClick={handleAddToCart} className="card-btn">Välj paket</button>
+                                    <button onClick={() => handleAddToCart(cards[activeCard])} className="card-btn">Välj paket</button>
                                 </div>
                                 <i className="card-info fa-solid fa-circle-question"></i>
                             </motion.article>
@@ -194,7 +194,7 @@ function HomeCards() {
                                     <p className="card__time-group-text">{item.time}</p>
                                 </ul>
                                 <div className="card-btn-group">
-                                    <button onClick={handleAddToCart} className="card-btn">Välj paket</button>
+                                    <button key={item.id} onClick={() => handleAddToCart(item)} className="card-btn">Välj paket</button>
                                 </div>
                                 <i className="card-info fa-solid fa-circle-question"></i>
                             </motion.article>
