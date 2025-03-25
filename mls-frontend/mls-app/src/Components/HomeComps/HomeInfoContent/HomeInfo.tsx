@@ -61,11 +61,11 @@ function HomeInfo() {
                     </div>
                     <div className="info__time__middle">
                         <p className="info__time__middle-text bold">Lördag</p>
-                        <p className="info__time__middle-text">10-20</p>
+                        <p className="info__time__middle-text">kl 10-20</p>
                     </div>
                     <div className="info__time__right">
                         <p className="info__time__right-text bold">Söndag</p>
-                        <p className="info__time__right-text">10-20</p>
+                        <p className="info__time__right-text">kl 10-20</p>
                     </div>
                 </motion.section>
         </>

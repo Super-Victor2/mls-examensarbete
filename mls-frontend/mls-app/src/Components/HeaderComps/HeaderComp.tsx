@@ -22,7 +22,6 @@ interface sendUser {
 async function LoginUser(user: sendUser): Promise<void> {
     try {
         console.log("Logging in user:", user.email, user.password);
-
         const response = await axios.post<apiResponse>("https://tm2znos4mf.execute-api.eu-north-1.amazonaws.com/auth/login", user, {
             headers: {
                 'Content-Type': 'application/json',
@@ -41,7 +40,7 @@ async function LoginUser(user: sendUser): Promise<void> {
         }
     } catch (error: any) {
         console.error('Error logging in:', error.response?.data || error.message);
-        alert(error.response?.data?.message || "Ett fel uppstod vid inloggning");
+        alert(error.response?.data?.message || "Ett fel uppstod vid inloggning, se till att du har rätt email och lösenord. Om du inte har ett konto, registrera dig.");
     }
 }
 
@@ -58,11 +57,12 @@ async function RegisterUser(user: sendUser): Promise<void> {
         if (response.data.data?.message) {
             console.log('Registrering lyckades!:', response.data);
             alert("Registrering lyckades!");
+            window.location.reload();
         } else {
             throw new Error(response.data.data?.message || 'Gick inte att registrera användare');
         }
     } catch (error: any) {
-        console.error("Error att registrera användare:", error.response?.data || error.message);
+        console.error("Ett fel uppstod vid registrering:", error.response?.data || error.message);
         alert(error.response?.data?.message || "Ett fel uppstod vid registrering");
     }
 }
@@ -71,7 +71,7 @@ function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [loginIsOpen, loginsetIsOpen] = useState(false);
     const [registerIsOpen, registersetIsOpen] = useState(false);
-    const { scrollY } = useScroll();
+    const {scrollY} = useScroll();
     const [headerClass, setHeaderClass] = useState("header-default");
     const [account, setAccount] = useState<string | null>(null);
     const [password, setPassword] = useState('');
@@ -170,6 +170,16 @@ function Header() {
             return;
         }
 
+        if (!email.includes('@') || !email.includes('.')) {
+            alert('Emailadress måste innehålla @ och .com');
+            return;
+        }
+
+        if (password.length < 4) {
+            alert('Lösenordet måste vara minst 4 tecken');
+            return;
+        }
+
         const user: sendUser = {
             password,
             email,
@@ -252,7 +262,6 @@ function Header() {
                     ) : (
                         <div className="header__nav-login-group">
                             <motion.button exit={{ opacity: 0, scale: 0 }} onClick={() => handlePopup()}  className="link-btn">Logga in</motion.button>
-                            {/* Login */}
                             <motion.div
                                 initial="closed"
                                 animate={loginIsOpen ? "open" : "closed"}
@@ -264,7 +273,6 @@ function Header() {
                                 <button onClick={handleLogin} className="header__nav-login-btn">Logga in</button>
                                 <p onClick={() => handlePopup()} className='header__nav-login-text'>Inget konto? Klicka här</p>
                             </motion.div>
-                            {/* Register */}
                             <motion.div
                                 initial="closed"
                                 animate={registerIsOpen ? "open" : "closed"}

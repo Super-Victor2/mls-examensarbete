@@ -1,8 +1,6 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 
-import AccountPage from './Pages/AccountPage/AccountPage'
-import BookingPage from './Pages/BookingPage/BookingPage'
 import ConfirmOrderPage from './Pages/ConfirmOrderPage/ConfirmOrderPage'
 import HomePage from './Pages/HomePage/HomePage'
 import OrderPage from './Pages/OrderPage/OrderPage'
@@ -17,8 +15,6 @@ function App() {
       <Header />
       <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/AboutPage' element={<AccountPage />} />
-          <Route path='/MenyPage' element={<BookingPage />} />
           <Route path='/ConfirmOrderPage' element={<ConfirmOrderPage />} />
           <Route path='/OrderPage' element={<OrderPage />} />
           <Route path='/OrdersPage' element={<OrdersPage />} />

@@ -97,6 +97,11 @@ function ConfirmComp() {
             checked: !checked,
         };
 
+        if (!epost.includes("@") || !epost.includes(".com")) {
+            alert("E-postadress måste innehålla '@' och '.com'");
+            newErrors.epost = true;
+        }
+
         setErrors(newErrors);
         const orderId = Date.now().toString();
 
@@ -125,7 +130,7 @@ function ConfirmComp() {
             console.log("User to be updated:", sendUser);
             CreateOrder(sendOrder);
             UpdateUser(sendUser);
-            window.location.href = "/OrdersPage";
+            window.location.href = "/";
         }
     }
 

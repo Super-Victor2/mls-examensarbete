@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;  
-    margin-top: 50px;
+    margin-top: 60px;
     gap: 15px;
 }
 
@@ -81,7 +81,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;  
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .menu__card-input-error {

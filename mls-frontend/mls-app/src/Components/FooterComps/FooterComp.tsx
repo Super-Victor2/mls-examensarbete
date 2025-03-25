@@ -30,9 +30,9 @@ function FooterComp() {
                         <li className="footer__opening__hours-item bold">Måndag - Fredag</li>
                         <li className="footer__opening__hours-item">Stängt</li>
                         <li className="footer__opening__hours-item bold">Lördag</li>
-                        <li className="footer__opening__hours-item">10-12</li>
+                        <li className="footer__opening__hours-item">kl 10-12</li>
                         <li className="footer__opening__hours-item bold">Söndag</li>
-                        <li className="footer__opening__hours-item">10-12</li>
+                        <li className="footer__opening__hours-item">kl 10-12</li>
                     </ul>
                 </div>
                 <div className="footer__contact-wrapper">

@@ -30,7 +30,6 @@ function HomeCards() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("Tvätt");
 
-    // Hidden / Shown animation
     const variants = {
         offscreen: {
             y: -20,
@@ -65,14 +64,12 @@ function HomeCards() {
         }
     }
 
-    // Resize mobile / desktop
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 1000);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Next card
     const nextCard = () => {
         if (isMobile) {
             setActiveCard((prev) => {
@@ -82,7 +79,6 @@ function HomeCards() {
         }
     };
     
-    // Previous card
     const prevCard = () => {
         if (isMobile) {
             setActiveCard((prev) => {
@@ -91,9 +87,7 @@ function HomeCards() {
             });
         }
     };
-       
 
-    // Api call Tvätt
     useEffect(() => {
         axios.get<cardApiResponse>("https://tm2znos4mf.execute-api.eu-north-1.amazonaws.com/menu")
             .then(response => {
@@ -105,13 +99,12 @@ function HomeCards() {
             .catch(error => console.error(error));
     }, [selectedCategory]);
 
-    // Add to cart
     const handleAddToCart = (selectedCard: Card) => {
         if (sessionStorage.getItem("token")) {
             sessionStorage.setItem("selectedCard", JSON.stringify(selectedCard));
             window.location.href = "/OrderPage"
         } else {
-            alert("logga in")
+            alert("Du måste logga innan du kan beställa")
         }
     }
 

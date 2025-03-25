@@ -69,35 +69,38 @@ function OrdersComp() {
         <>
             <main className="orders__section">
                 <h1 className="order__section-title">Dina bokningar</h1>
-                {account ? (
-                    cards.length > 0 ? (
-                        cards.map((order) => (
-                            <div key={order.orderId} className="orders__card">
-                                <img src={DateVector} alt="Date Icon" className="orders__card-vector" />
-                                <div className="orders__card-text-flexbox">
-                                    <div className="orders__card-info-text-wrapper">
-                                        <p className="orders__card-tier bold">{order.items.map((item) => item.tier)}</p>
-                                        <p className="orders__card-date bold">{order.date}</p>
-                                        <p className="orders__card-status-pending">{order.status}</p>
-                                    </div>
-                                    {order.items.map((item, index) => (
-                                        <div key={index} className="orders__card-included-wrapper">
-                                            {item.items
-                                            .filter((item) => item.included)
-                                            .map((item) => item.name)
-                                            .join(", ")}
+                <section className="orders__card-wrapper">
+                    {account ? (
+                        cards.length > 0 ? (
+                            cards.map((order) => (
+                                <div key={order.orderId} className="orders__card">
+                                    <img src={DateVector} alt="Date Icon" className="orders__card-vector" />
+                                    <div className="orders__card-text-flexbox">
+                                        <div className="orders__card-info-text-wrapper">
+                                            <p className="orders__card-tier bold">{order.items.map((item) => item.tier)}</p>
+                                            <p className="orders__card-date bold">{order.date}</p>
                                         </div>
-                                    ))}
-                                    <button onClick={() => handleCancel(order.orderId)} className="orders__card-btn">Avboka</button>
+                                        {order.items.map((item, index) => (
+                                            <div key={index} className="orders__card-included-wrapper">
+                                                {item.items
+                                                .filter((item) => item.included)
+                                                .map((item) => item.name)
+                                                .join(", ")}
+                                            </div>
+                                        ))}
+                                        <div className="orders__card-btn-wrapper">
+                                            <button onClick={() => handleCancel(order.orderId)} className="orders__card-btn">Avboka</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        ))
+                            ))
+                        ) : (
+                            <p className="orders__no-orders">Du har inga bokningar</p>
+                        )
                     ) : (
-                        <p className="orders__no-orders">Du har inga bokningar</p>
-                    )
-                ) : (
-                    <p className="orders__no-orders">Du måste vara inloggad för att se och hantera dina bokningar</p>
-                )}
+                        <p className="orders__no-orders">Du måste vara inloggad för att se och hantera dina bokningar</p>
+                    )}
+                </section>
             </main>
         </>
     )

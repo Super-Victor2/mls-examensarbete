@@ -8,21 +8,34 @@
     gap: 15px;
 }
 
+.orders__card-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
 /* Orders card */
 .orders__card {
     display: flex;
     flex-direction: row;
     background-color: var(--primary-color);
-    padding: 20px;
+    padding: 15px;
     gap: 20px;
+    min-height: 200px;
 }
 
 /* För datum och status */
 .orders__card-info-text-wrapper {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: 30px;
-    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.orders__card-vector {
 }
 
 /* Status */
@@ -40,6 +53,12 @@
 }
 
 /* Orders btn */
+
+.orders__card-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
 
 .orders__card-btn {
     padding: 10px 10px;

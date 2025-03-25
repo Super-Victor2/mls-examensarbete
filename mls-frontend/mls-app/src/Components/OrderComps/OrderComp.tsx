@@ -35,8 +35,6 @@ function OrderComp() {
         if (storedCard) {
           setSelectedCard(JSON.parse(storedCard));
         }
-
-        
     }, []);
 
     const cancelOrder = () => {
