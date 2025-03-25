@@ -22,7 +22,7 @@ function FooterComp() {
     };
 
     return (
-        <motion.footer initial="offscreen" whileInView="onscreen" variants={variants} viewport={{ once: true, amount: 0.8 }} className="footer" id='footer__section'>
+        <motion.footer initial="offscreen" whileInView="onscreen" variants={variants} viewport={{ once: true, amount: 0.3 }} className="footer" id='footer__section'>
             <section className="footer-wrapper">
                 <div className="footer__opening__hours-wrapper">
                     <h2 className="footer__opening__hours-header">Öppettider</h2>
@@ -30,9 +30,9 @@ function FooterComp() {
                         <li className="footer__opening__hours-item bold">Måndag - Fredag</li>
                         <li className="footer__opening__hours-item">Stängt</li>
                         <li className="footer__opening__hours-item bold">Lördag</li>
-                        <li className="footer__opening__hours-item">Stängt</li>
+                        <li className="footer__opening__hours-item">10-12</li>
                         <li className="footer__opening__hours-item bold">Söndag</li>
-                        <li className="footer__opening__hours-item">Stängt</li>
+                        <li className="footer__opening__hours-item">10-12</li>
                     </ul>
                 </div>
                 <div className="footer__contact-wrapper">
@@ -56,7 +56,7 @@ function FooterComp() {
                     <h2 className="footer__link-header">Länkar</h2>
                     <ul className="footer__link-list">
                         <ScrollLink className="footer__nav-link" to="card__section" smooth={true} duration={500}>Program</ScrollLink>
-                        <Link className='footer__nav-link' to={'/BookingPage'}>Bokningar</Link>
+                        <Link className='footer__nav-link' to={'/OrdersPage'}>Bokningar</Link>
                         <ScrollLink className="footer__nav-link" to="footer__section" smooth={true} duration={500}>Kontakt</ScrollLink>
                     </ul>
                 </nav>

@@ -1,9 +1,92 @@
+/* Admin Section */
+
+.admin__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    margin-top: 50px;
+    gap: 15px;
+}
+
+.menu__card-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    padding: 20px;
+}
+
+.menu__card-form-label {
+    margin-top: 10px;
+}
+
+.menu__card-input {
+    padding: 10px 10px;
+    border: none;
+    margin-top: 5px;
+    color: black;
+}
+
+.menu__card-checkbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.menu__card-form-btn {
+    background-color: var(--btn-color);
+    border: none;
+    padding: 10px 10px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    color: white;
+}
+
+.menu__card-form-btn:hover {
+    background-color: var(--btn-color-hover);
+}
+
+.menu__remove-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.menu__remove-form-input {
+    padding: 10px 10px;
+    border: none;
+    margin-top: 5px;
+    color: black;
+}
+
+.menu__remove-form-btn {
+    background-color: var(--btn-color);
+    border: none;
+    padding: 10px 10px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    color: white;
+}
+
+.menu__remove-form-btn:hover {
+    background-color: var(--btn-color-hover);
+}
+
+/* User Section */
 .user__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;  
     margin-top: 50px;
+}
+
+.menu__card-input-error {
+    border: 1px solid red;
+    background-color: #ffe6e6;
 }
 
 .user__section-form-wrapper {
@@ -16,10 +99,6 @@
 .user__section-form {
     display: flex;
     flex-direction: column;
-}
-
-label:nth-child(3) {
-    margin-top: 20px;
 }
 
 .user__section-form-input {

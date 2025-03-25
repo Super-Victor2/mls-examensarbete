@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
-export const orderSchema = Joi.object({
-    orderId: Joi.alternatives().try(Joi.number(), Joi.string()).optional(),
+export const menuSchema = Joi.object({
+    id: Joi.alternatives().try(Joi.number(), Joi.string()).optional(),
     items: Joi.array().items(Joi.object({
         type: Joi.string().valid('Polering', 'Tvätt').required(),
         price: Joi.string().pattern(/^\d+kr$/).required(),
@@ -12,7 +12,4 @@ export const orderSchema = Joi.object({
         })).required(),
         time: Joi.string().pattern(/^\d+([.,]\d+)?\s*(tim|min)$/).required(),
     })).required(),
-    date: Joi.date().required(),
-    status: Joi.string().required(),
-    email: Joi.string().email({ tlds: { allow: false } }).optional(),
 });

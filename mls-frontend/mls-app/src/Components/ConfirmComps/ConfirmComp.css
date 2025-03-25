@@ -1,3 +1,5 @@
+/* Confirm Main */
+
 .confirm__section {
     display: flex;
     flex-direction: column;
@@ -32,6 +34,12 @@
     margin-top: 3px;
 }
 
+.personal__section-input-error {
+    border: 2px solid var(--error-color);
+    padding: 5px 5px;
+    margin-top: 3px;
+}
+
 .personal__section-email {
     margin-top: -0px;
 }
@@ -42,11 +50,25 @@
     background-color: var(--card-bg);
     width: 330px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .comment__section-input-field {
-    padding: 20px 60px;
-    margin-bottom: 30px;
+    max-width: 300px;
+    min-width: 250px;
+    min-height: 100px;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+.comment__section-add-btn {
+    padding: 10px;
+    background-color: var(--btn-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 /* Terms Section */
@@ -57,14 +79,34 @@
     padding: 10px;
 }
 
+.terms__section-title {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.terms__section-group-terms-accept-error-text {
+    color: var(--error-color);
+    display: block;
+}
+
+.terms__section-group-terms-accept-error-text-hidden {
+    display: none;
+}
+
 .terms__section-group-terms-accept {
     display: flex;
     flex-direction: row;
     gap: 100px;
 }
 
+.terms__section-group-terms-accept-link {
+    color: lightblue;
+}
+
+/* Program Section */
+
 .program__info__section {
-    background-color: var(--card-bg);
+    background-color: var(--primary-color);
     width: 330px;
     padding: 10px;
 }
@@ -72,29 +114,81 @@
 .program__info-text__wrapper {
     display: grid;
     grid-template-columns: 60% 20% 20%;
-    grid-template-rows: 40px 100px;
+    grid-template-rows: 50px 40px 80px;
+    margin-bottom: 10px;
 }
 
 .program__info__wrapper-included {
-    grid-area: 2 / 1 / 4 / 4;
+    grid-area: 3 / 1 / 4 / 4;
+    
 }
 
 .program__info__wrapper-btn {
-    padding: 10px 10px;
     background-color: var(--btn-color);
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 10px;
+    grid-area: 2 / 3;
+}
+
+/* Confirm Btn */
+
+.program__info-section-btn-error-text {
+    text-align: center;
+    color: var(--error-color);
+    display: block;
+}
+
+.program__info-section-btn-text {
+    display: none;
 }
 
 .program__info__section-btn {
-    padding: 20px 130px;
+    padding: 20px;
+    width: 350px;
     background-color: var(--btn-color);
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 20px;
+    transition: all 0.3s ease-in-out; 
 }
+
+.program__info__section-btn:hover {
+    background-color: var(--btn-color-hover);
+}
+
+/* MQ Desktop => Mobile */
+
+@media screen and (min-width: 1000px) {
+    .confirm__section {
+        display: grid;
+        grid-template-columns: 330px 330px;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-content: space-evenly;
+        justify-items: center;
+    }
+
+    .comment__section {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .terms__section {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .program__info__section-btn-wrapper {
+        margin-top: -140px;
+    }
+
+    .program__info__section-btn {
+        grid-area: 2 / 2 / -3 / 2;
+    }
+}
+
+/* grid-row-start
+grid-column-start
+grid-row-end
+grid-column-end */

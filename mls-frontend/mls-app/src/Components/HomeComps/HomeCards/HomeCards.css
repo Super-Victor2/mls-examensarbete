@@ -151,6 +151,7 @@
     gap: 10px;
     padding: 0;
     margin: 0;
+    margin-top: auto;
 }
 
 .card-btn-group {
@@ -207,16 +208,20 @@
         align-items: center;
     }
 
-    .card {
-        width: 300px;
-    }
-
     .cards__wrapper {
         gap: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: start;
     }
+    
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 100%;
+    }
+
 
     .prevIcon, .nextIcon {
         display: none;

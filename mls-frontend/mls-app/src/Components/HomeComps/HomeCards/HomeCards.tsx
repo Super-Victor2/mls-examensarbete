@@ -117,7 +117,7 @@ function HomeCards() {
 
     return (
         <>
-            <motion.section initial="offscreen" whileInView="onscreen" variants={variants} viewport={{ once: true, amount: 0.8 }}  className="card__section" id='card__section'>
+            <motion.section initial="offscreen" whileInView="onscreen" variants={variants} viewport={{ once: true, amount: 0.2 }}  className="card__section" id='card__section'>
                 <h1 className="card__section-title bold">Program</h1>
                 <div className="card__section-btn-flex">
                     <motion.button
@@ -163,7 +163,7 @@ function HomeCards() {
                                 </ul>
 
                                 <ul className="card__time-group">
-                                    <i className="card__time-group clock fa-regular fa-clock"></i>
+                                    <i className="card__time-group-clock fa-regular fa-clock"></i>
                                     <p className="card__time-group-text">{cards[activeCard]?.time}</p>
                                 </ul>
                                 <div className="card-btn-group">
@@ -190,7 +190,7 @@ function HomeCards() {
                                 ))}
                                 </ul>
                                 <ul className="card__time-group">
-                                    <i className="card__time-group clock fa-regular fa-clock"></i>
+                                    <i className="card__time-group-clock fa-regular fa-clock"></i>
                                     <p className="card__time-group-text">{item.time}</p>
                                 </ul>
                                 <div className="card-btn-group">

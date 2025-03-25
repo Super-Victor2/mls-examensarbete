@@ -21,14 +21,14 @@ function OrderComp() {
     const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
     const pickTime = () => {
-        if(!selected) {
-            alert("välj tid")
+        if (!selected) {
+            alert("Välj tid");
         } else {
-            alert(selected)
-            sessionStorage.setItem("selectedTime", JSON.stringify(selected))
-            window.location.href = "/ConfirmOrderPage"
+            const formattedDate = selected.toLocaleDateString().split("T")[0];
+            sessionStorage.setItem("selectedTime", formattedDate); 
+            window.location.href = "/ConfirmOrderPage";
         }
-    }
+    };
 
     useEffect(() => {
         const storedCard = sessionStorage.getItem("selectedCard");

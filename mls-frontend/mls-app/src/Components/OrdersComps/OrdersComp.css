@@ -1,0 +1,55 @@
+/* Order section */
+.orders__section {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Orders card */
+.orders__card {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-color);
+    padding: 20px;
+    gap: 20px;
+}
+
+/* För datum och status */
+.orders__card-info-text-wrapper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 30px;
+    gap: 10px;
+}
+
+/* Status */
+.orders__card-status-pending {
+    color: orange;
+}
+
+.orders__card-status-confirmed {
+    color: green;
+}
+
+/* För info included */
+.orders__card-included-wrapper {
+    max-width: 180px;
+}
+
+/* Orders btn */
+
+.orders__card-btn {
+    padding: 10px 10px;
+    border: none;
+    background-color: var(--btn-color);
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.orders__card-btn:hover {
+    background-color: var(--btn-color-hover);
+}

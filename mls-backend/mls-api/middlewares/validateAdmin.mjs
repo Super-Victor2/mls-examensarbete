@@ -9,12 +9,11 @@ export const validateLogin = () => ({
         }
 
         const adminUser = {
-            username: "admin",
             password: await hashpassword("admin"),
             email: "admin@admin.com"
         };
 
-        const { username, password, role } = body || {};
+        const { username, password } = body || {};
 
         if (!email || !username || !password) {
             console.error('Missing required fields');

@@ -4,6 +4,7 @@ import { sendResponse, sendResponseWithHeaders } from '../../response/index.mjs'
 import { db } from '../../services/index.mjs';
 import { userSchema } from '../../models/userSchema.mjs';
 import { comparePasswords, hashpassword, generateJWT } from '../../utils/index.mjs';
+import 'dotenv/config';
 
 export const handler = middy(async (event) => {
     console.log('Received event:', JSON.stringify(event, null, 2));
@@ -49,13 +50,13 @@ export const handler = middy(async (event) => {
         }
 
         const adminUser = {
-            password: await hashpassword("mosigos123"),
-            email: "moakitty@gmail.com",
+            email: "admin@admin.com",
+            password: await hashpassword("admin"),
         };
 
         const isEqual = await comparePasswords(password, adminUser.password);
 
-        if (email === "moakitty@gmail.com" && (password !== adminUser.password || !isEqual)) {
+        if (email === adminUser.email && !isEqual) {
             console.error('Invalid admin credentials or permission denied');
             throw new Error('Invalid admin credentials or permission denied');
         }

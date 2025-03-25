@@ -18,7 +18,7 @@ export const generateJWT = (user) => {
     const payload = {
         username: user.username,
         email: user.email,
-        isAdmin: user.username === 'admin'
+        isAdmin: user.email === 'admin@admin.com'
     };
 
     const token = jwt.sign(payload, process.env.SECRET_ACCESS_KEY, { expiresIn: '1h' });

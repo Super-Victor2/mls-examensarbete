@@ -88,6 +88,30 @@ functions:
       - httpApi:
           path: /dates
           method: post
+  UpdateUser:
+    handler: functions/UpdateUser/index.handler
+    events:
+      - httpApi:
+          path: /user
+          method: put
+  UpdateMenu:
+    handler: functions/UpdateMenu/index.handler
+    events:
+      - httpApi:
+          path: /admin/menu
+          method: put
+  CreateMenu:
+    handler: functions/CreateMenu/index.handler
+    events:
+      - httpApi:
+          path: /admin/menu
+          method: post
+  DeleteMenu:
+    handler: functions/DeleteMenu/index.handler
+    events:
+      - httpApi:
+          path: /admin/menu/{id}
+          method: delete
 
 
 resources:
