@@ -8,5 +8,11 @@ En bokningssida för att polera och tvätta bilen.
 - Uppdatera kontot med förnamn, efternamn och telefonnummer.
 - Admin kan skapa / ta bort meny
 
+## Tekniker
+- React
+- TypeScript
+- AWS
+- Serverless
+
 ## Länk för hemsidan:
 https://staging.d2j46aeljac2kx.amplifyapp.com/
